@@ -1,0 +1,11 @@
+# Local restricted data and generated experiment artifacts
+/DATA/
+/results/
+/new_checkpoints/
+.all_of_us_config.json
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+
+/doc/
+/misc/
