@@ -141,3 +141,15 @@ The supplied extraction code forms diagnosis tokens at ICD level 3 and medicatio
 Demographics include `person_id`, `date_of_birth`, and sex-related fields. Sequence preparation adds a sex token and aligns clinical tokens with age values. Treatment-effect samples use pre-index history and a binary outcome in the configured post-index window.
 
 Do not distribute restricted participant histories, intermediate patient-level datasets, or patient-level predictions.
+
+## Synthetic patients
+
+`Synthetic patients/` contains four synthetic histories for the manuscript examples, with all events preceding treatment index age. DM01/DM02 compare a type 2 diabetes reference profile with added kidney disease (N18/N17); ONC01/ONC02 compare a lung cancer/COPD reference profile with added interstitial lung disease (J84) and corticosteroid exposure (H02A). Each paired variant adds two events.
+
+The histories are provided as `clinical_trajectories.jsonl` (one patient per line) and `clinical_trajectories_events.csv` (one event per row, with zero-based event indices). Ages are in years. These are generated examples, not real patient records.
+
+You can **run inference on these patients using the supplied fitted models**, without accessing All of Us data or fitting models yourself:
+
+1. After installation, open `notebooks/analysis/Treatment_effect_experiments.ipynb`.
+2. Run the imports and experiment-configuration cells in sections 0–1. Set `EXPERIMENT` to `glp1_vs_dpp4` for DM01/DM02 or `immunotherapy_vs_chemotherapy` for ONC01/ONC02.
+3. Jump directly to section 7, **Synthetic patient trajectories — saved-model inference**, and run its cells. The intervening analysis sections are not required for this example.
